@@ -9,6 +9,7 @@ export const getAllNews = async (req, res) => {
     res.status(500).json({ message: 'Error fetching news' });
   }
 };
+//new api
 
 // Post a news
 export const createNews = async (req, res) => {
