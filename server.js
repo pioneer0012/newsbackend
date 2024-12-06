@@ -2,7 +2,7 @@ import express from 'express';
 import dotenv from 'dotenv';
 import connectDB from './config/db.js';
 import newsRoutes from './routes/newsRoutes.js';
-
+import cors from 'cors';
 
 dotenv.config();
 
@@ -10,7 +10,7 @@ const app = express();
 
 // Middleware
 app.use(express.json());
-
+app.use(cors()); 
 // Connect to MongoDB
 connectDB();
 
