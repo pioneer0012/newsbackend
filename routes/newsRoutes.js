@@ -11,6 +11,6 @@ router.post('/', createNews);
 
 // UPDATE /api/news - UPDATE news
 router.put('/:id', updateNews);
-router.put('changed/:id', updateNew);
+router.put('/changed/:id', updateNew);
 
 export default router;
