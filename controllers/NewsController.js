@@ -54,3 +54,31 @@ export const updateNews = async (req, res) => {
   }
 };
 
+
+
+export const updateNew = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { title, description } = req.body;
+
+    // Ensure title and description are provided
+    if (!title || !description) {
+      return res.status(400).json({ message: 'Title and description are required' });
+    }
+
+    // Find and update the news item by ID
+    const updatedNews = await News.findByIdAndUpdate(
+      id,
+      { title, description },  // Update title and description
+      { new: true, runValidators: true } // Return the updated document and validate input
+    );
+
+    if (!updatedNews) {
+      return res.status(404).json({ message: 'News item not found' });
+    }
+
+    res.json({ message: 'News updated successfully', news: updatedNews });
+  } catch (error) {
+    res.status(500).json({ message: 'Error updating news' });
+  }
+};

@@ -1,5 +1,5 @@
 import express from 'express';
-import { getAllNews, createNews ,updateNews} from '../controllers/NewsController.js';
+import { getAllNews, createNews ,updateNews, updateNew } from '../controllers/NewsController.js';
 
 const router = express.Router();
 
@@ -10,6 +10,7 @@ router.get('/', getAllNews);
 router.post('/', createNews);
 
 // UPDATE /api/news - UPDATE news
-router.put('/:id',updateNews);
+router.put('/:id', updateNews);
+router.put('changed/:id', updateNew);
 
 export default router;
