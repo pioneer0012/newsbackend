@@ -5,7 +5,8 @@ const newsSchema = new mongoose.Schema({
   description: { type: String, required: true },
   status: { 
     type: String, 
-    enum: ['pending', 'published', 'rejected']
+    enum: ['pending', 'published', 'rejected'], 
+    default: 'pending' 
   },
   timestamp: { type: Date, default: Date.now },
 });
