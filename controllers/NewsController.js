@@ -69,7 +69,11 @@ export const updateNew = async (req, res) => {
     // Find and update the news item by ID
     const updatedNews = await News.findByIdAndUpdate(
       id,
-      { title, description },  // Update title and description
+      { 
+        title, 
+        description,
+        status: 'pending'  // Reset status to 'pending'
+      },
       { new: true, runValidators: true } // Return the updated document and validate input
     );
 
@@ -82,3 +86,4 @@ export const updateNew = async (req, res) => {
     res.status(500).json({ message: 'Error updating news' });
   }
 };
+
